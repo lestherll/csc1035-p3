@@ -141,7 +141,6 @@ public class Cell {
                     }
                 }
             }
-            }
         }
 
         Move move = new Move(moves, score);
