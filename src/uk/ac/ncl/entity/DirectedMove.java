@@ -13,7 +13,7 @@ public class DirectedMove {
 
 
     public DirectedMove(Cell cell, int[] direction) {
-
+        this.cell = cell;
         this.direction = direction;
     }
 
