@@ -41,7 +41,7 @@ class MoveCheckerTest {
         Cell cell = moveChecker.generateOpponent(CellStatus.DARK);
 
         assertTrue(cells[2][4] == cell || cells[3][5] == cell ||
-                cells[4][2] == cell || cells[4][3] == cell);
+                cells[4][2] == cell || cells[5][3] == cell);
         assertTrue(cell.getMove() != null);
         assertTrue(cell.getMove().getMoves().size() == 1);
         assertTrue(cell.getMove().getScore() == 1);
