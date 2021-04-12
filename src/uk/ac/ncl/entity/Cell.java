@@ -42,8 +42,8 @@ public class Cell {
     public Cell(CellStatus value, JButton jButton, int row, int column){
         this.value = value;
         this.jButton = jButton;
-        this.row = column;
-        this.column = row;
+        this.row = row;
+        this.column = column;
         this.move = null;
     }
 
@@ -116,7 +116,7 @@ public class Cell {
         boolean isLegal = false;
         int score = 0;
         ArrayList<DirectedMove> moves = new ArrayList<DirectedMove>();
-        int[][] DIRS = {{-1,-1}, {-1,0}, {-1,1}, {0, 1},  {0,-1}, {1,1}, {1,0}, {1,-1}};
+        int[][] DIRS = {{-1,-1}, {-1,0}, {-1,1}, {0, 1}, {0,-1}, {1,1}, {1,0}, {1,-1}};
 
         for (int[] dir : DIRS){
             int temp_score = 0;
