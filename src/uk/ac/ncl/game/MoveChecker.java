@@ -78,7 +78,7 @@ public class MoveChecker {
             for (int j = 0; j < BOARD_SIZE; j++) {
                 if (this.cells[i][j].getValue() == CellStatus.EMPTY){
                     if (this.cells[i][j].isLegal(colour, cells)){
-                        potentialMoves.add(this.cells[j][i]);
+                        potentialMoves.add(this.cells[i][j]);
                     }
                 }
             }
