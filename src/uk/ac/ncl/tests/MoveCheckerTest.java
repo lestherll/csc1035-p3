@@ -62,7 +62,7 @@ class MoveCheckerTest {
     void flipCheckers() {
         cells[5][3].isLegal(CellStatus.DARK, this.cells);
         moveChecker.flipPieces(cells[5][3], CellStatus.DARK);
-        assertTrue(cells[4][3].getValue() == CellStatus.LIGHT);
+        assertTrue(cells[4][3].getValue() == CellStatus.DARK);
         assertTrue(cells[4][3].getMove() == null);
     }
 
