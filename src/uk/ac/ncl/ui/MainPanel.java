@@ -87,7 +87,7 @@ public class MainPanel extends JFrame {
     /**
      * Checks whether the game has finished
      *
-     * @param moveChecker
+     * @param moveChecker object that checks and updates the state of the board
      */
     private void CheckNextMove(MoveChecker moveChecker){
         if (missedMoves > 1) {
@@ -101,7 +101,7 @@ public class MainPanel extends JFrame {
     /**
      * Makes a move for the opponent
      *
-     * @param opponent
+     * @param opponent the cell object selected for the opponent
      */
     private void MoveOpponent(Cell opponent){
         moveChecker.flipPieces(opponent, OPPONENTS_CELL_STATUS);
@@ -127,6 +127,7 @@ public class MainPanel extends JFrame {
                 ActionListener taskPerformer = ae -> MoveOpponent(opponent);
                 setUpTimer(taskPerformer);
             } else {
+                System.out.println("CPU skipped");
                 missedMoves += 1;
                 grayCells = moveChecker.findPotentialMoves(PLAYERS_CELL_STATUS);
                 if (grayCells.size() == 0)
@@ -135,6 +136,7 @@ public class MainPanel extends JFrame {
             }
         }
         else{
+            System.out.println("player skipped");
             missedMoves += 1;
             CheckNextMove(moveChecker);
         }
@@ -144,7 +146,7 @@ public class MainPanel extends JFrame {
      *
      * Applies the move, if the clicked cell is corresponds to a potential move
      *
-     * @param tempEl
+     * @param tempEl selected piece
      */
     private void onClick(Cell tempEl){
         if (tempEl.getValue() == CellStatus.GRAY) {
@@ -158,7 +160,8 @@ public class MainPanel extends JFrame {
     /**
      * Creates a delay to make user's and opponent's moves visible
      *
-     * @param taskPerformer
+     * @param taskPerformer ActionListener object that performs movePlayer method
+     *                      when the player clicks on a grey square
      */
     private void setUpTimer(ActionListener taskPerformer){
         Timer timer = new Timer(Constants.DELAY_TIME, taskPerformer);
