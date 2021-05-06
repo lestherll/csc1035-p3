@@ -93,9 +93,9 @@ public class MainPanel extends JFrame {
         if (missedMoves > 1) {
             JOptionPane.showMessageDialog(this, moveChecker.getFinalScore());
             System.exit(0);
-        }
-        else
+        } else {
             moveChecker.colourPieces(grayCells, CellStatus.GRAY);
+        }
     }
 
     /**
@@ -128,6 +128,10 @@ public class MainPanel extends JFrame {
                 setUpTimer(taskPerformer);
             } else {
                 missedMoves += 1;
+                grayCells = moveChecker.findPotentialMoves(PLAYERS_CELL_STATUS);
+                if (grayCells.size() == 0)
+                    missedMoves += 1;
+                CheckNextMove(moveChecker);
             }
         }
         else{
